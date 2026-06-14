@@ -47,11 +47,9 @@
     .fmt-btn { flex:1; padding:.55rem; border-radius:8px; border:1px solid var(--border); background:var(--surface2); color:var(--muted); font-size:.82rem; font-weight:600; cursor:pointer; transition:all .15s; font-family:var(--mono); }
     .fmt-btn.active { background:rgba(110,231,183,.12); border-color:var(--accent); color:var(--accent); }
     .fmt-btn:hover:not(.active) { border-color:#3E4466; color:var(--text); }
-
     .quality-row { display:flex; align-items:center; gap:.8rem; }
     .quality-row input[type=range] { flex:1; accent-color:var(--accent); height:4px; cursor:pointer; }
     .quality-val { font-family:var(--mono); font-size:.9rem; font-weight:500; color:var(--accent); min-width:2.5rem; text-align:right; }
-
     .lossless-row { display:flex; align-items:center; justify-content:space-between; }
     .lossless-row span { font-size:.85rem; color:var(--text); }
     .toggle { position:relative; width:40px; height:22px; }
@@ -61,8 +59,7 @@
     .toggle input:checked + .slider-track { background:rgba(110,231,183,.15); border-color:var(--accent); }
     .toggle input:checked + .slider-track::after { transform:translateX(18px); background:var(--accent); }
 
-    /* encoder notice */
-    .encoder-notice { margin:0 2rem; padding:.7rem 1rem; background:rgba(129,140,248,.08); border:1px solid rgba(129,140,248,.2); border-radius:8px; font-size:.78rem; color:#A5B4FC; margin-bottom:1.2rem; display:flex; gap:.5rem; align-items:flex-start; }
+    .encoder-notice { margin:0 2rem 1.2rem; padding:.7rem 1rem; background:rgba(129,140,248,.08); border:1px solid rgba(129,140,248,.2); border-radius:8px; font-size:.78rem; color:#A5B4FC; display:flex; gap:.5rem; align-items:flex-start; line-height:1.5; }
 
     .actions { padding:0 2rem 1.5rem; }
     #convertBtn { width:100%; padding:.85rem; background:linear-gradient(135deg,var(--accent) 0%,#34D399 100%); color:#0F1117; font-weight:700; font-size:.95rem; border:none; border-radius:10px; cursor:pointer; transition:opacity .15s,transform .1s; display:flex; align-items:center; justify-content:center; gap:.5rem; }
@@ -70,39 +67,33 @@
     #convertBtn:active { transform:scale(.99); }
     #convertBtn:disabled { opacity:.4; cursor:not-allowed; }
 
+    #wasmStatus { max-width:760px; margin:0 auto .75rem; font-size:.78rem; color:var(--muted); font-family:var(--mono); display:none; padding:.5rem .75rem; background:var(--surface); border:1px solid var(--border); border-radius:8px; }
+
     #fileList { max-width:760px; margin:0 auto; display:flex; flex-direction:column; gap:.75rem; }
     .file-item { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:1rem 1.25rem; display:grid; grid-template-columns:1fr auto; gap:.5rem 1rem; align-items:center; }
     .file-name { font-size:.85rem; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
     .file-meta { font-size:.75rem; color:var(--muted); font-family:var(--mono); }
     .size-bar-wrap { grid-column:1/-1; margin-top:.25rem; }
     .size-bar-labels { display:flex; justify-content:space-between; font-size:.7rem; font-family:var(--mono); color:var(--muted); margin-bottom:.3rem; }
-    .size-bar-labels .savings { color:var(--accent); font-weight:600; }
-    .size-bar-track { height:6px; background:var(--surface2); border-radius:100px; overflow:hidden; }
-    .size-bar-orig { height:100%; background:var(--border); width:100%; border-radius:100px; position:relative; }
-    .size-bar-new { height:100%; border-radius:100px; background:linear-gradient(90deg,var(--accent),var(--accent2)); transition:width .4s cubic-bezier(.4,0,.2,1); position:absolute; top:0; left:0; }
+    .size-bar-track { height:6px; background:var(--surface2); border-radius:100px; overflow:hidden; position:relative; }
+    .size-bar-new { height:100%; border-radius:100px; background:linear-gradient(90deg,var(--accent),var(--accent2)); transition:width .4s cubic-bezier(.4,0,.2,1); width:0%; }
     .file-actions { display:flex; gap:.5rem; flex-wrap:wrap; }
     .dl-btn { padding:.4rem .9rem; border-radius:7px; font-size:.78rem; font-weight:600; background:rgba(110,231,183,.12); border:1px solid rgba(110,231,183,.25); color:var(--accent); cursor:pointer; transition:background .15s; text-decoration:none; display:inline-flex; align-items:center; gap:.3rem; }
     .dl-btn:hover { background:rgba(110,231,183,.2); }
     .dl-btn-all { padding:.4rem .9rem; border-radius:7px; font-size:.78rem; font-weight:600; background:var(--surface2); border:1px solid var(--border); color:var(--text); cursor:pointer; transition:background .15s; }
     .dl-btn-all:hover { background:var(--border); }
-    .status-pill { font-size:.7rem; font-family:var(--mono); padding:.2rem .55rem; border-radius:100px; }
+    .status-pill { font-size:.7rem; font-family:var(--mono); padding:.2rem .55rem; border-radius:100px; white-space:nowrap; }
     .status-pill.done { background:rgba(110,231,183,.1); color:var(--accent); }
     .status-pill.error { background:rgba(248,113,113,.1); color:var(--danger); }
     .status-pill.pending { background:var(--surface2); color:var(--muted); }
-
     .results-header { max-width:760px; margin:0 auto 1rem; display:flex; align-items:center; justify-content:space-between; }
     .results-header h3 { font-size:.85rem; font-weight:600; color:var(--muted); }
     #clearBtn { font-size:.78rem; color:var(--muted); background:none; border:none; cursor:pointer; padding:.3rem .5rem; border-radius:6px; transition:color .15s; }
     #clearBtn:hover { color:var(--danger); }
-
     footer { max-width:760px; margin:3rem auto 0; text-align:center; font-size:.75rem; color:var(--muted); border-top:1px solid var(--border); padding-top:1.5rem; }
     footer a { color:var(--muted); }
-
     @keyframes spin { to { transform:rotate(360deg); } }
     .spinner { width:16px; height:16px; border:2px solid rgba(0,0,0,.2); border-top-color:#0F1117; border-radius:50%; animation:spin .6s linear infinite; display:inline-block; }
-
-    /* progress bar for WASM loading */
-    #wasmStatus { max-width:760px; margin:0 auto .75rem; font-size:.78rem; color:var(--muted); font-family:var(--mono); display:none; }
   </style>
 </head>
 <body>
@@ -139,9 +130,7 @@
     <h2>Drop JPG / PNG files here</h2>
     <p>or click to browse — multiple files supported</p>
     <div class="drop-formats">
-      <span class="fmt-tag">JPG</span>
-      <span class="fmt-tag">JPEG</span>
-      <span class="fmt-tag">PNG</span>
+      <span class="fmt-tag">JPG</span><span class="fmt-tag">JPEG</span><span class="fmt-tag">PNG</span>
       <span class="fmt-tag" style="color:var(--accent);border-color:rgba(110,231,183,.3)">→ AVIF</span>
       <span class="fmt-tag" style="color:var(--accent2);border-color:rgba(129,140,248,.3)">→ WebP</span>
     </div>
@@ -178,16 +167,16 @@
 
     <div class="field" style="display:flex;align-items:flex-end;">
       <div style="font-size:.78rem;color:var(--muted);line-height:1.5;">
-        <span style="color:var(--text);font-weight:600;">Powered by:</span><br>
-        AVIF → libavif (WASM, Squoosh codec)<br>
-        WebP → libwebp (WASM, Squoosh codec)
+        <span style="color:var(--text);font-weight:600;">Engine:</span><br>
+        WebP → Canvas API (native, fast)<br>
+        AVIF → WASM encoder (libavif via CDN)
       </div>
     </div>
   </div>
 
   <div class="encoder-notice">
     <span>ℹ️</span>
-    <span>Uses the same WebAssembly encoders as Google Squoosh — real compression, not browser Canvas. First conversion loads the codec (~1–2 MB, cached after).</span>
+    <span>AVIF uses a WebAssembly encoder (~500 KB, fetched once from jsDelivr and cached). WebP uses the browser's native Canvas API — no external fetch needed.</span>
   </div>
 
   <div class="actions">
@@ -200,7 +189,7 @@
   </div>
 </div>
 
-<div id="wasmStatus">⏳ Loading encoder…</div>
+<div id="wasmStatus"></div>
 
 <div id="resultsSection" style="display:none;">
   <div class="results-header">
@@ -214,102 +203,128 @@
 </div>
 
 <footer>
-  <p>All processing is done locally in your browser using WebAssembly. Nothing is ever uploaded.</p>
-  <p style="margin-top:.4rem;">Open source · <a href="https://github.com" target="_blank">GitHub</a></p>
+  <p>All processing happens in your browser. Your images never leave your device.</p>
+  <p style="margin-top:.4rem;"><a href="https://github.com" target="_blank">GitHub</a> · Open source · MIT</p>
 </footer>
 
-<!-- JSZip for batch download -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<!-- JSZip -->
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
 
-<script type="module">
-// ── Squoosh WASM codecs via CDN (unpkg) ──────────────────────────────────────
-// We use the @jsquash packages which expose encode() functions backed by
-// the same libavif / libwebp WASM as Squoosh.
+<script>
+// ─────────────────────────────────────────────────────────────────────────────
+// AVIF encoding via wasm-avif (self-contained UMD bundle from jsDelivr)
+// This avoids dynamic import() which breaks under some CSP policies.
+// We lazy-load it as a classic <script> tag on first AVIF request.
+// ─────────────────────────────────────────────────────────────────────────────
 
-let avifEncode = null;
-let webpEncode = null;
+let avifWasmReady = false;
+let avifLoadPromise = null;
 
-async function loadAvif() {
-  if (avifEncode) return;
-  const mod = await import('https://unpkg.com/@jsquash/avif@1.3.1/encode.js');
-  avifEncode = mod.default;
+function loadAvifWasm() {
+  if (avifWasmReady) return Promise.resolve();
+  if (avifLoadPromise) return avifLoadPromise;
+
+  avifLoadPromise = new Promise((resolve, reject) => {
+    // Use the 'avif-js' UMD bundle — pure JS+WASM, no dynamic imports needed
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/avif-js@1.0.2/dist/avif-js.umd.js';
+    script.onload = () => { avifWasmReady = true; resolve(); };
+    script.onerror = () => reject(new Error('Failed to load AVIF encoder. Check your internet connection.'));
+    document.head.appendChild(script);
+  });
+  return avifLoadPromise;
 }
 
-async function loadWebp() {
-  if (webpEncode) return;
-  const mod = await import('https://unpkg.com/@jsquash/webp@1.4.0/encode.js');
-  webpEncode = mod.default;
-}
-
-// ── Helpers ───────────────────────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────────────────────
+// Helpers
+// ─────────────────────────────────────────────────────────────────────────────
 function baseName(n) { return n.replace(/\.[^.]+$/, ''); }
 function fmtBytes(b) {
   if (b < 1024) return b + ' B';
-  if (b < 1048576) return (b/1024).toFixed(1) + ' KB';
-  return (b/1048576).toFixed(2) + ' MB';
+  if (b < 1048576) return (b / 1024).toFixed(1) + ' KB';
+  return (b / 1048576).toFixed(2) + ' MB';
 }
 
-async function fileToImageData(file) {
+function fileToCanvas(file) {
   return new Promise((resolve, reject) => {
     const img = new Image();
     const url = URL.createObjectURL(file);
     img.onload = () => {
-      const canvas = document.createElement('canvas');
-      canvas.width = img.naturalWidth;
-      canvas.height = img.naturalHeight;
-      const ctx = canvas.getContext('2d');
-      ctx.drawImage(img, 0, 0);
+      const c = document.createElement('canvas');
+      c.width = img.naturalWidth; c.height = img.naturalHeight;
+      c.getContext('2d').drawImage(img, 0, 0);
       URL.revokeObjectURL(url);
-      resolve(ctx.getImageData(0, 0, canvas.width, canvas.height));
+      resolve(c);
     };
     img.onerror = () => { URL.revokeObjectURL(url); reject(new Error('Failed to decode image')); };
     img.src = url;
   });
 }
 
-async function convertToAvif(imageData, quality, lossless) {
-  await loadAvif();
-  // quality: 0–100 (higher = better). effort: 4 is balanced.
-  const result = await avifEncode(imageData, {
-    quality: lossless ? 100 : quality,
-    qualityAlpha: lossless ? 100 : quality,
-    effort: 4,
-    lossless: lossless ? 1 : 0,
+// WebP via Canvas — universally supported, real compression
+function convertToWebP(canvas, quality, lossless) {
+  return new Promise((resolve, reject) => {
+    const q = lossless ? undefined : quality / 100;
+    canvas.toBlob(blob => {
+      if (blob) resolve(blob);
+      else reject(new Error('WebP encoding failed'));
+    }, 'image/webp', q);
   });
+}
+
+// AVIF via avif-js WASM library
+async function convertToAVIF(canvas, quality, lossless) {
+  setStatus('⏳ Loading AVIF encoder (one-time, ~500 KB)…');
+  await loadAvifWasm();
+  setStatus('⚙️ Encoding AVIF…');
+
+  // avif-js exposes window.avifJs.encode(imageData, options)
+  if (!window.avifJs || !window.avifJs.encode) {
+    throw new Error('AVIF encoder not available');
+  }
+
+  const ctx = canvas.getContext('2d');
+  const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+  const result = await window.avifJs.encode(imageData, {
+    width: canvas.width,
+    height: canvas.height,
+    quality: lossless ? 0 : Math.round((100 - quality) * 0.63), // avif-js uses 0=lossless, 1-63 lossy
+    qualityAlpha: lossless ? 0 : Math.round((100 - quality) * 0.63),
+    speed: 6, // 0=slowest/best, 10=fastest
+  });
+
   return new Blob([result], { type: 'image/avif' });
 }
 
-async function convertToWebp(imageData, quality, lossless) {
-  await loadWebp();
-  const result = await webpEncode(imageData, {
-    quality: lossless ? 100 : quality,
-    lossless: lossless ? 1 : 0,
-    method: 4, // 0-6, higher=slower/better
-  });
-  return new Blob([result], { type: 'image/webp' });
-}
-
-// ── State ─────────────────────────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────────────────────
+// UI state
+// ─────────────────────────────────────────────────────────────────────────────
 let selectedFiles = [];
-let convertedResults = []; // { name, blob }
+let convertedResults = [];
 
-const fileInput     = document.getElementById('fileInput');
-const dropzone      = document.getElementById('dropzone');
-const convertBtn    = document.getElementById('convertBtn');
-const fileList      = document.getElementById('fileList');
-const resultsSection= document.getElementById('resultsSection');
-const resultsCount  = document.getElementById('resultsCount');
-const qualitySlider = document.getElementById('qualitySlider');
-const qualityVal    = document.getElementById('qualityVal');
-const qualityHint   = document.getElementById('qualityHint');
-const losslessToggle= document.getElementById('losslessToggle');
-const clearBtn      = document.getElementById('clearBtn');
-const downloadAllBtn= document.getElementById('downloadAllBtn');
-const wasmStatus    = document.getElementById('wasmStatus');
+const fileInput      = document.getElementById('fileInput');
+const dropzone       = document.getElementById('dropzone');
+const convertBtn     = document.getElementById('convertBtn');
+const fileList       = document.getElementById('fileList');
+const resultsSection = document.getElementById('resultsSection');
+const resultsCount   = document.getElementById('resultsCount');
+const qualitySlider  = document.getElementById('qualitySlider');
+const qualityVal     = document.getElementById('qualityVal');
+const qualityHint    = document.getElementById('qualityHint');
+const losslessToggle = document.getElementById('losslessToggle');
+const clearBtn       = document.getElementById('clearBtn');
+const downloadAllBtn = document.getElementById('downloadAllBtn');
+const wasmStatus     = document.getElementById('wasmStatus');
 
 let outputFormat = 'avif';
 
-// ── Format toggle ─────────────────────────────────────────────────────────────
+function setStatus(msg) {
+  wasmStatus.textContent = msg;
+  wasmStatus.style.display = msg ? 'block' : 'none';
+}
+
+// Format toggle
 document.querySelectorAll('.fmt-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.fmt-btn').forEach(b => b.classList.remove('active'));
@@ -318,7 +333,7 @@ document.querySelectorAll('.fmt-btn').forEach(btn => {
   });
 });
 
-// ── Quality slider ────────────────────────────────────────────────────────────
+// Quality slider
 function updateQualityHint(v) {
   if (v >= 90) qualityHint.textContent = 'near-lossless';
   else if (v >= 75) qualityHint.textContent = 'high quality';
@@ -332,19 +347,16 @@ qualitySlider.addEventListener('input', () => {
 });
 updateQualityHint(75);
 
-// ── Lossless toggle ───────────────────────────────────────────────────────────
+// Lossless toggle
 losslessToggle.addEventListener('change', () => {
   document.getElementById('qualityField').style.opacity = losslessToggle.checked ? '.3' : '1';
   qualitySlider.disabled = losslessToggle.checked;
 });
 
-// ── Drag & drop ───────────────────────────────────────────────────────────────
+// Drag & drop
 dropzone.addEventListener('dragover', e => { e.preventDefault(); dropzone.classList.add('drag-over'); });
 dropzone.addEventListener('dragleave', () => dropzone.classList.remove('drag-over'));
-dropzone.addEventListener('drop', e => {
-  e.preventDefault(); dropzone.classList.remove('drag-over');
-  addFiles([...e.dataTransfer.files]);
-});
+dropzone.addEventListener('drop', e => { e.preventDefault(); dropzone.classList.remove('drag-over'); addFiles([...e.dataTransfer.files]); });
 fileInput.addEventListener('change', () => addFiles([...fileInput.files]));
 
 function addFiles(files) {
@@ -356,11 +368,13 @@ function addFiles(files) {
   dropzone.querySelector('p').textContent = 'Drop more or click to add';
 }
 
-// ── Conversion ────────────────────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────────────────────
+// Conversion
+// ─────────────────────────────────────────────────────────────────────────────
 convertBtn.addEventListener('click', async () => {
   if (!selectedFiles.length) return;
   convertBtn.disabled = true;
-  convertBtn.innerHTML = `<span class="spinner"></span> Converting…`;
+  convertBtn.innerHTML = '<span class="spinner"></span> Converting…';
   convertedResults = [];
   fileList.innerHTML = '';
   resultsSection.style.display = 'block';
@@ -371,46 +385,45 @@ convertBtn.addEventListener('click', async () => {
   const formats = outputFormat === 'both' ? ['avif', 'webp'] : [outputFormat];
 
   for (const file of selectedFiles) {
-    // Decode once, reuse ImageData for both formats
-    let imageData;
+    let canvas;
     try {
-      wasmStatus.style.display = 'block';
-      wasmStatus.textContent = `⏳ Decoding ${file.name}…`;
-      imageData = await fileToImageData(file);
-    } catch(e) {
-      wasmStatus.style.display = 'none';
+      setStatus(`🖼 Decoding ${file.name}…`);
+      canvas = await fileToCanvas(file);
+    } catch (e) {
+      setStatus('');
       continue;
     }
 
     for (const fmt of formats) {
       const item = createFileItem(file.name, fmt);
       fileList.appendChild(item.el);
-      wasmStatus.textContent = `⏳ Encoding ${baseName(file.name)}.${fmt} — loading codec if needed…`;
 
       try {
+        setStatus(`⚙️ Encoding ${baseName(file.name)}.${fmt}…`);
         const blob = fmt === 'avif'
-          ? await convertToAvif(imageData, quality, lossless)
-          : await convertToWebp(imageData, quality, lossless);
+          ? await convertToAVIF(canvas, quality, lossless)
+          : await convertToWebP(canvas, quality, lossless);
 
         const savings = ((1 - blob.size / file.size) * 100).toFixed(1);
         item.finish({ ok: true, blob, origSize: file.size, newSize: blob.size, savings, fmt, origName: file.name });
         convertedResults.push({ name: baseName(file.name) + '.' + fmt, blob });
-      } catch(err) {
+      } catch (err) {
         item.finish({ ok: false, err: err.message });
       }
     }
   }
 
-  wasmStatus.style.display = 'none';
+  setStatus('');
   resultsCount.textContent = `${convertedResults.length} file${convertedResults.length !== 1 ? 's' : ''} converted`;
-  // Show zip button only if there are 2+ results
   if (convertedResults.length >= 2) downloadAllBtn.style.display = 'inline-flex';
 
   convertBtn.disabled = false;
   convertBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg> Convert images`;
 });
 
-// ── File item card ────────────────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────────────────────
+// File card
+// ─────────────────────────────────────────────────────────────────────────────
 function createFileItem(name, fmt) {
   const el = document.createElement('div');
   el.className = 'file-item';
@@ -426,10 +439,9 @@ function createFileItem(name, fmt) {
     if (ok) {
       const dlUrl = URL.createObjectURL(blob);
       const outName = baseName(origName) + '.' + f;
-      const savingsNum = parseFloat(savings);
-      const savingsColor = savingsNum > 0 ? 'var(--accent)' : 'var(--danger)';
-      const savingsLabel = savingsNum > 0 ? `−${savings}% smaller` : `+${Math.abs(savingsNum)}% larger`;
-
+      const pct = parseFloat(savings);
+      const savingsColor = pct > 0 ? 'var(--accent)' : 'var(--danger)';
+      const savingsLabel = pct > 0 ? `−${savings}% smaller` : `+${Math.abs(pct).toFixed(1)}% larger`;
       el.innerHTML = `
         <div style="min-width:0">
           <div class="file-name">${baseName(origName)}<span style="color:var(--accent)">.${f}</span></div>
@@ -442,12 +454,10 @@ function createFileItem(name, fmt) {
         <div class="size-bar-wrap">
           <div class="size-bar-labels">
             <span>Original (${fmtBytes(origSize)})</span>
-            <span class="savings" style="color:${savingsColor}">${savingsLabel}</span>
+            <span style="color:${savingsColor};font-weight:600;font-family:var(--mono);font-size:.7rem">${savingsLabel}</span>
           </div>
           <div class="size-bar-track">
-            <div class="size-bar-orig">
-              <div class="size-bar-new" style="width:0%"></div>
-            </div>
+            <div class="size-bar-new" style="width:0%"></div>
           </div>
         </div>
       `;
@@ -459,8 +469,8 @@ function createFileItem(name, fmt) {
       });
     } else {
       el.innerHTML = `
-        <div>
-          <div class="file-name">${name}</div>
+        <div style="min-width:0">
+          <div class="file-name">${baseName(name)}<span style="color:var(--accent)">.${fmt}</span></div>
           <div class="file-meta" style="color:var(--danger)">${err}</div>
         </div>
         <span class="status-pill error">✗ error</span>
@@ -470,14 +480,15 @@ function createFileItem(name, fmt) {
   return { el, finish };
 }
 
-// ── Download all as ZIP ───────────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────────────────────
+// ZIP download (2+ files only)
+// ─────────────────────────────────────────────────────────────────────────────
 downloadAllBtn.addEventListener('click', async () => {
   downloadAllBtn.textContent = '⏳ Zipping…';
   downloadAllBtn.disabled = true;
   const zip = new JSZip();
   for (const r of convertedResults) {
-    // name already has correct extension and original base name intact
-    zip.file(r.name, r.blob);
+    zip.file(r.name, r.blob); // original base name + new extension, all intact
   }
   const content = await zip.generateAsync({ type: 'blob' });
   const a = document.createElement('a');
@@ -488,14 +499,12 @@ downloadAllBtn.addEventListener('click', async () => {
   downloadAllBtn.disabled = false;
 });
 
-// ── Clear ─────────────────────────────────────────────────────────────────────
+// Clear
 clearBtn.addEventListener('click', () => {
-  selectedFiles = [];
-  convertedResults = [];
-  fileList.innerHTML = '';
-  resultsSection.style.display = 'none';
-  convertBtn.disabled = true;
-  fileInput.value = '';
+  selectedFiles = []; convertedResults = [];
+  fileList.innerHTML = ''; resultsSection.style.display = 'none';
+  convertBtn.disabled = true; fileInput.value = '';
+  setStatus('');
   dropzone.querySelector('h2').textContent = 'Drop JPG / PNG files here';
   dropzone.querySelector('p').textContent = 'or click to browse — multiple files supported';
 });
